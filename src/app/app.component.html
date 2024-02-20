@@ -6,8 +6,8 @@
 </div>
 
 <div class="demo">
-  <div>Start Date: {{startDate | date: 'dd/MMM/yyyy'}}</div>
-  <div>{{title | titlecase}}</div>
+  <div>Start Date: {{ startDate | date: 'dd/MMM/yyyy' }}</div>
+  <div>{{ title | titlecase }}</div>
 </div>
 
 <div class="courses">
@@ -19,18 +19,25 @@
                  [class.is-last]="$last"
                  [class.is-even]="$even"
                  [class.is-odd]="$odd"
-    />
+    >
+
+      <course-image [src]="course.iconUrl"/>
+      @if ($first) {
+        <h5 class="header-for-content">NG-CONTENT PROJECTION TEST</h5>
+      }
+      <h5 class="header-for-content1">NG-CONTENT PROJECTION TEST, {{ courses.length }}</h5>
+    </course-card>
   } @empty {
     <h1>No courses found</h1>
   }
 
-<!--  <course-card *ngFor="let course of courses; index as i; first as isFirst; last as isLast;"-->
-<!--               (courseSelected)="onCourseSelected($event)"-->
-<!--               [course]="course"-->
-<!--               [index]="i+1"-->
-<!--               [class.is-first]="isFirst"-->
-<!--               [class.is-last]="isLast"-->
-<!--  />-->
+  <!--  <course-card *ngFor="let course of courses; index as i; first as isFirst; last as isLast;"-->
+  <!--               (courseSelected)="onCourseSelected($event)"-->
+  <!--               [course]="course"-->
+  <!--               [index]="i+1"-->
+  <!--               [class.is-first]="isFirst"-->
+  <!--               [class.is-last]="isLast"-->
+  <!--  />-->
 
 </div>
 
